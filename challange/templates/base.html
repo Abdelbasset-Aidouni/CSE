@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>CSE Challange</title>
+  </head>
+  <body {% if not request.user.is_authenticated %} id="login-page" {% endif %}>
+    {% if request.user.is_authenticated %}
+      {% include "nav-bar-top.html" %}
+    {% endif %}
+    
+
+    <div>
+      {% block base %}
+          {% if request.user.is_authenticated %}
+            {% include "main-page.html" %}
+          {%  else  %}
+          <div class="container col-8">
+            {% include "login_or_register.html" %}
+          </div>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+            {% include "nav-bar-bottom.html" %}
+          {% endif %}
+      {% endblock base %}
+    </div>
+     
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+    <script type="text/javascript">
+      $(document).ready(function (){
+        var form;
+        $(document.body).on("click",".member-form",function(event){
+          event.preventDefault();
+          form = $(this);
+
+          var formData = form.serialize();
+          console.log(formData);
+          $.ajax({
+          url:"{% url 'rest_api:retrieve' %}",
+          method:"GET", 
+          success:function(data){
+            console.log(data);
+            
+          },
+          error:function(data){
+            console.log("error ");
+            console.log(data);
+          },
+          });
+        });
+      });
+    </script>
+    {% block script %}
+          
+      {% endblock script %}
+  </body>
+</html>

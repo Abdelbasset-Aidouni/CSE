@@ -1,0 +1,80 @@
+ #login-page{
+	background:linear-gradient(70deg,#0ABAA0,#08A1d0); /*linear-gradient(-90deg,#0871d0,#0A2AA0)*/
+	
+	
+}
+#index{
+	display:block;
+}
+main {
+	padding-top: 12%;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+.login-register{
+	background-color: rgba(0,0,0, 0.4);
+	display: grid;
+	grid-template-columns: 60% 40%;
+	min-height: 300px;
+	border-radius: 1%;
+	padding: 10px
+}
+.showcase{
+	color:white;
+	padding: 20px;
+	/*background:#8642f4;*/
+}
+.btns{
+	/*background:white;*/ /*linear-gradient(70deg,#0ABAA0,#08A1d0);*/
+	padding: 20px;
+	display: grid;
+	align-content: space-around;
+}
+.btn-login{
+	margin-top: 20px;
+	width: 100%;
+}
+.white,.ble{
+	font-size: 30px;
+}
+.white{
+	font-weight: 300;
+}
+#navbar-bottom .active a{
+	color: #08A1d0 !important;
+}
+body .navbar #navbarSupportedContent{
+	display: flex;
+	justify-content: flex-end;
+}
+.box-shadow{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.lang{
+	font-weight:100;
+}
+.titles{	
+	font-size: 65px;
+	font-weight:300;
+}
+.titles span{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+}
+/*.member-list,.member-create{
+	display: grid;
+	justify-content: center;
+	min-width: 100% !important;
+}
+.members-container{
+	width: 200px;
+	min-height: 200px !important;
+	max-height: 200px;
+	overflow-y: scroll;
+	
+}
+#member-items .member-item{
+	min-width:300px !important;
+}*/
